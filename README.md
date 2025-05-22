@@ -125,7 +125,7 @@ kubectl create -f Mediplus/
 ### 2. Backup namespace
 
 ```bash
-velero backup create mediplus-v1 --include-namespace=mediplus
+velero backup create mediplus-v1 --include-namespaces=mediplus
 ```
 
 ### 3. Xóa namespace
@@ -137,7 +137,7 @@ kubectl delete namespace mediplus
 ### 4. Khôi phục namespace
 
 ```bash
-velero restore create mediplus-v1 --from-backup mediplus-v1 --include-namespace=mediplus
+velero restore create mediplus-v1 --from-backup mediplus-v1 --include-namespaces=mediplus
 ```
 
 ---
