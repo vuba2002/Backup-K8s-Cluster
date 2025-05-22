@@ -141,3 +141,7 @@ velero restore create --from-backup mediplus-v1
 ```
 
 ---
+### 5. Đặt lịch tự động backup
+```bash
+velero schedule create daily-cluster-backup --schedule="0 0 * * *" --include-namespaces '*'
+```
