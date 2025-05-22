@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediplus-deployment
+  namespace: mediplus
+  labels:
+    app: mediplus
+spec:
+  replicas: 2
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      app: mediplus
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: mediplus
+    spec:
+      containers:
+        - name: mediplus-container
+          image: nguyenbavu1902/mediplus-lite:v0.1.0
+          ports:
+            - containerPort: 80
